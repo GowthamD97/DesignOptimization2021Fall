@@ -6,3 +6,4 @@ const = ({'type': 'eq', 'func': lambda x: x[0] + 3 * x[1]},
 bounds = ((-10, 10), (-10, 10), (-10, 10), (-10, 10), (-10, 10))
 result = minimize(funcn, (1, 2, 3, 4, 5), method='SLSQP', bounds=bounds, constraints=const)
 print(result)
+
