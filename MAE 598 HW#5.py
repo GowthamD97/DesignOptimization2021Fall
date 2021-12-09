@@ -96,16 +96,16 @@ stop = 0;
 A = [];
 b = [];
 
-active = [];
+act= [];
 
 while
 
     mu0 = zeros(size(g(x)));
-    A = a0(active,:);
-    b = b0(active);
+    A = a0(act:);
+    b = b0(act);
     [s, mu] = solve_activeset(x, W, c, A, b);
     mu = round(mu * 1e12) / 1e12;
-    mu0(active) = mu;
+    mu0(act) = mu;
     gcheck = a0 * s - b0;
     gcheck = round(gcheck * 1e12) / 1e12;
     mudash = 0;
@@ -135,13 +135,13 @@ else
     [~, Add] = max(gcheck);
 end
 
-active = setdiff(active, active(Remove));
-active = [active, Add];
-active = unique(active);
+act = setdiff(active, active(Remove));
+act = [active, Add];
+act = unique(active);
 end
 end
 
-function[s, mu] = solve_activeset(x, W, c, A, b)
+function[S, Mu] = solve_activeset(x, W, c, A, b)
 
 M = [W, A; A, zeros(size(A,1))];
 U = [-c;b];
