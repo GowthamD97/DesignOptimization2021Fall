@@ -108,17 +108,17 @@ while
     mu0(active) = mu;
     gcheck = a0 * s - b0;
     gcheck = round(gcheck * 1e12) / 1e12;
-    mucheck = 0;
+    mudash = 0;
 
     Add = [];
     Remove = [];
 
-    if (numel(mu) == 0)
+    if (numdash(mu) == 0)
         mucheck = 1;
-    elseif
+    else if
     min(mu) > 0
 
-    mucheck = 1; % OK
+    mudash = 1; % OK
 else
 
     [~, Remove] = min(mu);
@@ -147,7 +147,7 @@ M = [W, A; A, zeros(size(A,1))];
 U = [-c;b];
 sol = M\U;
 
-s = sol(1:numel(x));
-mu = sol(numel(x) + 1:numel(sol));
+S = sol(1:numdash(x));
+Mu = sol(numdash(x) + 1:numdash(sol));
 
 end
