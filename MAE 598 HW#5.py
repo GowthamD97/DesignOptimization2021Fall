@@ -135,9 +135,9 @@ else
     [~, Add] = max(gcheck);
 end
 
-act = setdiff(active, active(Remove));
-act = [active, Add];
-act = unique(active);
+act = setdiff(act, act(Remove));
+act = [act, Add];
+act = unique(act);
 end
 end
 
